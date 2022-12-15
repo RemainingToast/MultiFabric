@@ -8,13 +8,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MinecraftDedicatedServer.class)
-public class ExampleMixin {
+public class MinecraftDedicatedServerMixin {
 	@Inject(at = @At("TAIL"), method = "setupServer")
 	private void setupServer(CallbackInfoReturnable<Boolean> cir) {
 		if (cir.getReturnValue()) {
-			MultiFabric.LOGGER.info("Fabric server started successfully!");
+			MultiFabric.LOGGER.info("MultiFabric started successfully!");
 		} else {
-			MultiFabric.LOGGER.error("Fabric server failed to 'setupServer'!");
+			MultiFabric.LOGGER.error("MultiFabric failed to 'setupServer'!");
 		}
 	}
 }
